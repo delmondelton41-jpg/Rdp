@@ -47,7 +47,7 @@ jobs:
           $tsUrl = "https:                                                             
           $installerPath = "$env:TEMP\tailscale.msi"
           Invoke-WebRequest -Uri $tsUrl -OutFile $installerPath
-          Start-Process msiexec.exe -ArgumentList "/i `"$installerPath`"$installerPath`"" /quiet /norestart"" -Wait
+          Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$installerPath`"$installerPath`"" /quiet /norestart"" -Wait
           Remove-Item $installerPath -Force
 
       - name: Establish Tailscale Connection
@@ -82,6 +82,5 @@ jobs:
           Write-Host ""Address: $env:TAILSCALE_IP""
           Write-Host ""Username: RDP""
           Write-Host ""Password: $(echo $env:RDP_CREDS)""
-          Write-Host ""==================`n"
-          while ($
+          Write-Host "==================`
           
